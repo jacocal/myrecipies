@@ -3,12 +3,20 @@ require 'test_helper'
 class RecipeTest < ActiveSupport::TestCase
   
   def setup
-    @recipe = Recipe.new(name: "chicken", summary: "best chicken ever", 
-              description: "Add it all, squash it and finally fry it") #@ makes it an instance variable instead of a local variable
+    @chef = Chef.create(chefname: "bob", email: "bob@example.com") #must be create to hit the data base and not just in-memory
+    #@recipe = Recipe.new(name: "chicken", summary: "best chicken ever", 
+    #          description: "Add it all, squash it and finally fry it") #@ makes it an instance variable instead of a local variable
+    @recipe = @chef.recipes.build(name: "chicken", summary: "best chicken ever", 
+              description: "Add it all, squash it and finally fry it") #with added variable and reference
   end
   
   test "recipe should be valid" do
     assert @recipe.valid?
+  end
+  
+  test "chef_id should be present" do
+    @recipe.chef_id = nil
+    assert_not @recipe.valid?
   end
   
   test "name should be valid" do

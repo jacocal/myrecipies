@@ -20,3 +20,24 @@ email: string
 - email must be present
 - email must be unique
 - email must be valid
+
+Chefs:
++what we have already:
+    - Chef model
+    - Validations
+    - Chefs tanle with columns chefname and email
+    - Add passwords to the chefs table for authentification
+    - Ability to register new chefs
+    - Use email as log in credentials
+    - Ability to display chefs profile
+    - Ability to list chefs
+    - Ability to log in and out
++Authentication updates:
+    -Show recipe page -> Ability to edit/update only own recipe
+    -Navigation partial -> Toggle menu, restrict new
+    -Restrict Likes
+    -Recipe - update to current_user
+    -Like - update to current User
+    -before_action :require_user, exceot: [:show, :index]
+    -before_action :require_same_user for chefs, only [:edit, :update]
+

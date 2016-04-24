@@ -2,12 +2,46 @@
   <div class="container">
     <%= link_to "myRecipies" , root_path, class: "btn btn-lg btn-success", id: "logo" %> <!-- creating a link, reference, class in this case a button,
     id of the class -->
-    <div class="nav_item">
-      <%= link_to "Recipes", recipes_path, class: "btn btn-default btn-warning" %>
-    </div>
-    <div class="nav_item">
-      <%= link_to "Chefs", chefs_path, class: "btn btn-default btn-warning" %>
-    </div>
+    <ul class="nav_ul_item">
+     <li class="dropdown">
+          <%= link_to '#', class: 'btn btn-default btn-warning dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+            Styles <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <% if logged_in? %>
+            <li>
+              <%= link_to(new_style_path) do %>
+                New Style
+              <% end %>
+            </li>
+            <li class='divider'></li>
+            <% end %>
+            <% Style.all.each do |style| %>
+              <li><%= link_to style.name, style_path(style) %></li>
+            <% end %>
+          </ul>
+        </li>
+    </ul>
+    <ul class="nav_ul_item">
+     <li class="dropdown">
+          <%= link_to '#', class: 'btn btn-default btn-warning dropdown-toggle', 'data-toggle' => 'dropdown' do %>
+            Ingredients <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <% if logged_in? %>
+            <li>
+              <%= link_to(new_ingredient_path) do %>
+                New Ingredient
+              <% end %>
+            </li>
+            <li class='divider'></li>
+            <% end %>
+            <% Ingredient.all.each do |ingredient| %>
+              <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+            <% end %>
+          </ul>
+        </li>
+    </ul>
     <% if logged_in? %>
       <div class="nav_item">
         <%= link_to "New Recipe", new_recipe_path, class: "btn btn-default btn-warning" %>

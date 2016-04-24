@@ -32,7 +32,6 @@ Chefs:
     - Ability to display chefs profile
     - Ability to list chefs
     - Ability to log in and out
-+Authentication updates:
     -Show recipe page -> Ability to edit/update only own recipe
     -Navigation partial -> Toggle menu, restrict new
     -Restrict Likes
@@ -40,4 +39,4 @@ Chefs:
     -Like - update to current User
     -before_action :require_user, exceot: [:show, :index]
     -before_action :require_same_user for chefs, only [:edit, :update]
-
+    

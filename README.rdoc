@@ -40,3 +40,4 @@ Chefs:
     -before_action :require_user, exceot: [:show, :index]
     -before_action :require_same_user for chefs, only [:edit, :update]
     
+Adding admin functionality

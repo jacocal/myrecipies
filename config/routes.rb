@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   
   resources :ingredients, only: [:new, :create, :show]
   
+  #resources :reviews, only: [:new, :create, :show]
+  
 end

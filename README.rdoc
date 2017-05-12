@@ -41,3 +41,19 @@ Chefs:
     -before_action :require_same_user for chefs, only [:edit, :update]
     
 Adding admin functionality
+
+What's missing:
+    -Reviews table: body, type = text_field, two foreign keys
+    -Do tests and validations
+    -Build Review model
+    -Chef has_many reviews
+    -Review belongs to chefs
+    -Recipe has_many reviews
+    -Review belongs_to recipes
+    -Test assosiations on console
+    +Do html for entering reviews on recipe show page
+    +Routes for reviews: new, create and show
+    +Authenticated chefs can create reviews
+    +Associate a chef_id and recipe_id
+    +Use existing code
+    
